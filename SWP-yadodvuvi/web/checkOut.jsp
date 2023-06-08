@@ -4,7 +4,7 @@
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
     <head>
         <meta charset="UTF-8">
@@ -64,10 +64,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="h5">Shopping Bag</th>
-                                        <th scope="col">Format</th>
-                                        <th scope="col">Quantity</th>
+                                        <th scope="col" class="h5">My tour</th>
+                                        <th scope="col">Discount</th>
+                                        <th scope="col">People</th>
                                         <th scope="col">Price</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>

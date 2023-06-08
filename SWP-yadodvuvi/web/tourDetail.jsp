@@ -61,21 +61,19 @@
 
                     <div class="col-lg-4">
                         <h2 class="section-title text-left mb-4">Take a look at Tour Video</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 
-                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p>
+                            ${t.getContent()}
+                        </p>
 
-                        <h5>- Outdoor recreation activities:</h5>
+
+
+                        <h5>- Các hoạt động:</h5>
                         <ul class="list-unstyled two-col clearfix list_active">
-                            <li>+ Airlines</li>
-                            <li>Car Rentals</li>
-                            <li>Cruise Lines</li>
-                            <li>Hotels</li>
-                            <li>Railways</li>
-                            <li>Travel Insurance</li>
-                            <li>Package Tours</li>
-                            <li>Insurance</li>
-                            <li>Guide Books</li>
+
+                            <c:forEach var="i" items="${requestScope.lat}">
+                                <li>+ ${i.getActivityName()} : ${i.getTime()}</li>
+                                </c:forEach>
                             <style>
                                 .list_active li{
                                     padding-left: 15px;
@@ -84,9 +82,7 @@
                             </style>
                         </ul>
 
-                        <p><a href="#" class="btn btn-primary">Get Started</a></p>
-
-
+                        <p><a href="BookingTour?tourID=${t.getTour_ID()}" class="btn btn-primary">Booking</a></p>
                     </div>
                 </div>
             </div>

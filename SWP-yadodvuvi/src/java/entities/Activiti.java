@@ -61,7 +61,10 @@ public class Activiti {
     }
 
     public String getTime() {
-        return time;
+        if(time.isEmpty()){
+            return "07:00";
+        }
+        return time.substring(0, 5);
     }
 
     public void setTime(String time) {

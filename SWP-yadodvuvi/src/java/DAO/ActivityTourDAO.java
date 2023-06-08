@@ -16,12 +16,12 @@ public class ActivityTourDAO extends MyDAO {
 
     public List<Activiti> loadAllActivityTour(String tourID) {
         List<Activiti> list = new ArrayList<>();
-        String xSql = "SELECT [Tour_ID], c.[Activity_ID], c.[ActivityName], [landscape_Address], [time] \n" +
-"              FROM [dbo].[TourActivity] t join [dbo].[Activity] c  on c.[Activity_ID] = t.[Activity_ID] \n" +
-"			  Where [Tour_ID] = ?  ";
+        String xSql = "SELECT [Tour_ID], c.[Activity_ID], c.[ActivityName], [landscape_Address], [time] \n"
+                + "              FROM [dbo].[TourActivity] t join [dbo].[Activity] c  on c.[Activity_ID] = t.[Activity_ID] \n"
+                + "			  Where [Tour_ID] = ? ORDER by time ";
         try {
             ps = con.prepareStatement(xSql);
-             ps.setString(1, tourID);
+            ps.setString(1, tourID);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -29,7 +29,7 @@ public class ActivityTourDAO extends MyDAO {
                 list.add(new Activiti(rs.getInt("Activity_ID"),
                         rs.getInt("Tour_ID"),
                         rs.getString("landscape_Address"),
-                        rs.getString("ActivityName"),                      
+                        rs.getString("ActivityName"),
                         rs.getString("time")));
             }
             rs.close();
@@ -39,9 +39,11 @@ public class ActivityTourDAO extends MyDAO {
         }
         return list;
     }
+
+
+
     public static void main(String[] args) {
-       ActivityTourDAO dao = new ActivityTourDAO();
-       List<Activiti> list = dao.loadAllActivityTour("4");
-        System.out.println(list.toString());
+        ActivityTourDAO dao = new ActivityTourDAO();
+        System.out.println(dao.loadAllActivityTour("2"));
     }
 }

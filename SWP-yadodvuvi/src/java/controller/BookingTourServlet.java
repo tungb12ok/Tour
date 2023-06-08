@@ -4,8 +4,6 @@
  */
 package controller;
 
-import DAO.*;
-import entities.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,37 +11,30 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  *
  * @author tungl
  */
-@WebServlet(name = "TourDetailServlet", urlPatterns = {"/TourDetail"})
-public class TourDetailServlet extends HttpServlet {
+@WebServlet(name = "BookingTourServlet", urlPatterns = {"/BookingTour"})
+public class BookingTourServlet extends HttpServlet {
 
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id_raw = request.getParameter("id");
-//        response.getWriter().print(id_raw);
-        TourDAO dao = new TourDAO();
-        ActivityTourDAO tDao = new ActivityTourDAO();
-        List<Activiti> lt = tDao.loadAllActivityTour(id_raw);
-        Tour t = dao.getTourID(id_raw);
-        
-        List<Tour> list = dao.loadAllTour();
-        request.setAttribute("tour", list);
-        request.setAttribute("t", t);
-        request.setAttribute("lat", lt);
-        request.getRequestDispatcher("tourDetail.jsp").forward(request, response);
-
+            request.getRequestDispatcher("checkOut.jsp").forward(request, response);
     }
 
+  
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     }
+
+    
+    
 
 }
