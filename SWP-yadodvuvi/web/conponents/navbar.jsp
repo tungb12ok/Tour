@@ -65,7 +65,7 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="profile">Profile</a></li>
-                                        <c:if test="${user.getRoleName() eq 'Admin'}">
+                                        <c:if test="${user.getRoleName() eq 'admin'}">
                                         <li><a class="dropdown-item" href="admin/adminSite">Admin Manager</a></li>
                                         </c:if>  
                                     <li><a class="dropdown-item" href="signout">Sign out</a></li>

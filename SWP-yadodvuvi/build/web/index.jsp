@@ -106,10 +106,10 @@
                                     <ion-icon name="star"></ion-icon>
                                 </div>
                                 <p class="card-subtitle">
-                                    <a href="Tour_Detail?id=${i.getTour_ID()}">${i.getCity_ID()}</a>
+                                    <a href="TourDetail?id=${i.getTour_ID()}">${i.getCity_ID()}</a>
                                 </p>
                                 <h3 class="h3 card-title">
-                                    <a href="Tour_Detail?id=${i.getTour_ID()}">${i.getHotel()}</a>
+                                    <a href="TourDetail?id=${i.getTour_ID()}">${i.getHotel_ID()}</a>
                                 </h3>
                             </div>
                         </div>

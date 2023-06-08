@@ -233,8 +233,8 @@ public class UserDAO extends MyDAO {
 ////        System.out.println(dao.checkAuthentication("tung@123.com", "1"));
 //        User a = new User(1, "tung", "1111111111", "tung@123.com", "tung", "1", "1111111", true, "2002/12/12", "HN", true, "admin");
 ////        System.out.println(dao.updateProfile(a));
-////        System.out.println(dao.searchUser("cmnd", "1231231"));\
-System.out.println(dao.getAll());
-        System.out.println(dao.updatePassword("UserName","tung", "123"));
+        System.out.println(dao.searchUser("cmnd", "0987654321").getRoleName());
+//System.out.println(dao.getAll());
+//        System.out.println(dao.updatePassword("UserName","tung", "123"));
     }
 }
