@@ -84,7 +84,7 @@ public class UserDAO extends MyDAO {
     }
 
     public boolean registerUser(String fullName, String cmnd, String email, String userName, String password, String phone, String userType, boolean isBlocked) {
-        String xSql = "INSERT INTO [dbo].[Users] ([FullName], [cmnd], [Email], [userName], [Password], [Phone], [Role_ID], [IsBlocked]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String xSql = "INSERT INTO [dbo].[User] ([FullName], [cmnd], [Email], [userName], [Password], [Phone], [Role_ID], [IsBlocked]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             ps = con.prepareStatement(xSql);
@@ -233,8 +233,9 @@ public class UserDAO extends MyDAO {
 ////        System.out.println(dao.checkAuthentication("tung@123.com", "1"));
 //        User a = new User(1, "tung", "1111111111", "tung@123.com", "tung", "1", "1111111", true, "2002/12/12", "HN", true, "admin");
 ////        System.out.println(dao.updateProfile(a));
-        System.out.println(dao.searchUser("cmnd", "0987654321").getRoleName());
+//        System.out.println(dao.searchUser("cmnd", "0987654321").getRoleName());
 //System.out.println(dao.getAll());
 //        System.out.println(dao.updatePassword("UserName","tung", "123"));
+            dao.registerUser("TUNG", "111111111", "Tung@dqw.com", "tung123", "123", "123123123", "3", false);
     }
 }

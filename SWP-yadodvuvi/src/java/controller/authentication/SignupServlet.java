@@ -41,7 +41,6 @@ public class SignupServlet extends HttpServlet {
         String address = request.getParameter("address");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("re_password");
-        String role = request.getParameter("userType");
 
         UserDAO dao = new UserDAO();
         if (dao.searchUser("Email", email) != null) {
@@ -62,7 +61,7 @@ public class SignupServlet extends HttpServlet {
         }
         
         if (status) {
-            dao.registerUser(lastName + firstName, cccd, email, username, password, phone, role, true);
+            dao.registerUser(lastName + firstName, cccd, email, username, password, phone, "3", false);
         } else {
             request.setAttribute("showModalRegister", true);
         }

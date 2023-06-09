@@ -189,22 +189,6 @@
                                         <label class="form-label">Address</label>
                                         <textarea class="form-control shadow-none" rows="1" name="address" required"></textarea>
                                     </div>
-
-                                    <div class="col-md-6 ps-0 mb-3">
-                                        <label class="form-label">User Type</label>
-                                        <br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="userType" value="3" id="userCheckbox" checked>
-                                            <label class="form-check-label" for="userCheckbox">User</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="userType" value="2" id="staffCheckbox">
-                                            <label class="form-check-label" for="staffCheckbox">Staff</label>
-                                        </div>
-                                    </div>
-
-
-
                                     <div class="col-md-6 ps-0 mb-3">
                                         <label class="form-label">Password</label>
                                         <input type="password" class="form-control shadow-none" name="password" id="password" required>
