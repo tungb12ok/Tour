@@ -26,15 +26,14 @@ public class TourDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id_raw = request.getParameter("id");
-//        response.getWriter().print(id_raw);
         TourDAO dao = new TourDAO();
         ActivityTourDAO tDao = new ActivityTourDAO();
         List<Activiti> lt = tDao.loadAllActivityTour(id_raw);
-        Tour t = dao.getTourID(id_raw);
-        
+
         List<Tour> list = dao.loadAllTour();
         request.setAttribute("tour", list);
-        request.setAttribute("t", t);
+        request.setAttribute("id", id_raw);
+        request.setAttribute("t", dao.getTourID(id_raw));
         request.setAttribute("lat", lt);
         request.getRequestDispatcher("tourDetail.jsp").forward(request, response);
 

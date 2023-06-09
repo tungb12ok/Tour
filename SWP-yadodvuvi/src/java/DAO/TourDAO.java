@@ -16,7 +16,7 @@ public class TourDAO extends MyDAO {
 
     public List<Tour> loadAllTour() {
         List<Tour> list = new ArrayList<>();
-        String xSql = "SELECT [Tour_ID], [StartDate], [EndDate], [Hotel_ID], t.[City_ID], [NumberPeople], [Content], [IMG], [TotalPrice], t.[isDelete], t.[Type_ID] \n"
+        String xSql = "SELECT [Tour_ID], [StartDate], [EndDate], [Hotel_ID], t.[City_ID], [NumberPeople], [Content], t.[IMG], [TotalPrice], t.[isDelete], t.[Type_ID] \n"
                 + "                FROM [dbo].[Tour] t join [dbo].[City] c  on c.[City_ID] = t.[City_ID] join [dbo].[TourType] a on a.[Type_ID] = t.[Type_ID] join [dbo].[Hotel] h on h.[ID] = t.[Hotel_ID]";
         try {
             ps = con.prepareStatement(xSql);
@@ -75,7 +75,6 @@ public class TourDAO extends MyDAO {
 //        } catch (Exception e) {
 //        }
 //    }
-
     public void insertTour(Activiti activiti) {
         // String xSql =""
     }
@@ -119,7 +118,7 @@ public class TourDAO extends MyDAO {
                 + "　     ,t.[City_ID]　\n"
                 + "　     ,[NumberPeople]　\n"
                 + "　     ,[Content]　\n"
-                + "　     ,[IMG]　\n"
+                + "　     ,t.[IMG]　\n"
                 + "　     ,[TotalPrice]\n"
                 + "      ,t.[isDelete]\n"
                 + "      ,t.[Type_ID] FROM [dbo].[Tour] t join [dbo].[City] c  on c.[City_ID] = t.[City_ID] join [dbo].[TourType] a on a.[Type_ID] = t.[Type_ID] join [dbo].[Hotel] h on h.[ID] = t.[Hotel_ID] WHERE t.Tour_ID = ?";

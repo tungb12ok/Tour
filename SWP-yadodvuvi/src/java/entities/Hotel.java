@@ -14,7 +14,8 @@ public class Hotel {
     private String room;
     private boolean active;
     private boolean isDelete;
-
+    private  String IMG;
+    private String description;
     public Hotel() {
     }
 
@@ -24,6 +25,22 @@ public class Hotel {
         this.room = room;
         this.active = active;
         this.isDelete = isDelete;
+    }
+
+    public String getIMG() {
+        return IMG;
+    }
+
+    public void setIMG(String IMG) {
+        this.IMG = IMG;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 

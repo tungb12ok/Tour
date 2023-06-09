@@ -4,8 +4,7 @@
  */
 package controller;
 
-import DAO.CommonTourDAO;
-import DAO.TourDAO;
+import DAO.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,39 +12,37 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import entities.*;
 import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 /**
  *
  * @author tungl
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "DeleteBooking", urlPatterns = {"/DeleteBooking"})
+public class DeleteBooking extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CommonTourDAO tDAO = new CommonTourDAO();
-        String c = tDAO.CityName("1").getCity_Name();
-        TourDAO dao = new TourDAO();
-        List<Tour> list = new ArrayList<>();
         HttpSession session = request.getSession();
-        session.setAttribute("mess", null);
-
-        list = dao.loadAllTour();
-        request.setAttribute("tDAO", tDAO);
-        request.setAttribute("tour", list);
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+        String id = request.getParameter("id");
+        OrderDAO dao = new OrderDAO();
+        // Status 2: admin confirm lai duoc huy va hoan tien 
+        if (dao.getOrderByID(Integer.parseInt(id)).getStatus().equalsIgnoreCase("1")) {
+            dao.updateOrderStatus(Integer.parseInt(id), 2);
+            session.setAttribute("messHuyTour", "Bạn phải chờ admin xác nhận từ 1-2 ngày để hủy tour và hoàn lại tiền");
+        }
+        if (dao.getOrderByID(Integer.parseInt(id)).getStatus().equalsIgnoreCase("0")) {
+            dao.deleteOrder(Integer.parseInt(id));
+        }
+        response.sendRedirect("MyBooking");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
+
 }

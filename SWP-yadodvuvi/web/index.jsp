@@ -4,7 +4,7 @@
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="VN">
 
     <head>
         <meta charset="UTF-8">
@@ -106,11 +106,14 @@
                                     <ion-icon name="star"></ion-icon>
                                 </div>
                                 <p class="card-subtitle">
-                                    <a href="TourDetail?id=${i.getTour_ID()}">${i.getCity_ID()}</a>
+                                    <a href="TourDetail?id=${i.getTour_ID()}">${tDAO.CityName(i.getCity_ID()).getCity_Name()}</a>
                                 </p>
                                 <h3 class="h3 card-title">
-                                    <a href="TourDetail?id=${i.getTour_ID()}">${i.getHotel_ID()}</a>
+                                    <a href="TourDetail?id=${i.getTour_ID()}">Hotel: ${tDAO.getHotelById(i.getHotel_ID()).getHotel_Name()}</a>
                                 </h3>
+                                <h4 class="h3 card-title">
+                                    <a href="TourDetail?id=${i.getTour_ID()}" style="color: red">${i.getTotalPrice()}VNĐ</a>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -122,33 +125,6 @@
             </div>
 
 
-
-
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                            <img src="images/tours/1.jfif" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Tour TÃ¢y NguyÃªn 3N2Ä: KhÃ¡m PhÃ¡ TÃ  ÄÃ¹ng - BuÃ´n MÃª Thuá»t - ThÃ¡c
-                                    Draysap
-                                </h5>
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 v-margin-bottom-5 ">
-        
-                                    <ul class="tourListPros list-inline" style="font-size: 13px;">
-                                        <li>KDL Há» TÃ  ÄÃ¹ng</li>
-                                        <li>KhÃ¡m PhÃ¡ Xá»© Sá» TÃ¢y NguyÃªn</li>
-                                        <li>áº¨m Thá»±c TÃ¢y NguyÃªn</li>
-                                        <li>Báº£o TÃ ng Tháº¿ Giá»i CÃ  PhÃª</li>
-                                    </ul>
-                                </div>
-                                <span class="price vcolor-info">73.999.000 <small class="textCurrency">VND</small></span>
-                            </div>
-        
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <!-- footer -->
             <%@include file="conponents/footer.jsp" %>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

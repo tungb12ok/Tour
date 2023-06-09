@@ -44,6 +44,5 @@ public class ActivityTourDAO extends MyDAO {
 
     public static void main(String[] args) {
         ActivityTourDAO dao = new ActivityTourDAO();
-        System.out.println(dao.loadAllActivityTour("2"));
     }
 }

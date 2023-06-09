@@ -87,6 +87,28 @@ public class CommonTourDAO extends MyDAO {
         return list;
     }
 
+    public Hotel getHotelById(int hotelId) {
+        String sql = "SELECT [ID], [Name], [Room], [Active], [isDelete] FROM [dbo].[Hotel] WHERE [ID] = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, hotelId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Hotel(rs.getInt("ID"),
+                        rs.getString("Name"),
+                        rs.getString("Room"),
+                        rs.getBoolean("Active"),
+                        rs.getBoolean("isDelete"));
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public City CityName(String id) {
         City name = new City();
         String xSql = "SELECT \n"
@@ -110,6 +132,6 @@ public class CommonTourDAO extends MyDAO {
 
     public static void main(String[] args) {
         CommonTourDAO dao = new CommonTourDAO();
-        System.out.println(dao.CityName("2"));
+        System.out.println(dao.CityName("1").getCity_Name());
     }
 }

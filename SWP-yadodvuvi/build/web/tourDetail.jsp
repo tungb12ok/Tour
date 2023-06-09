@@ -81,8 +81,8 @@
                                 }
                             </style>
                         </ul>
-
-                        <p><a href="BookingTour?tourID=${t.getTour_ID()}" class="btn btn-primary">Booking</a></p>
+                        <h4 style="color: red">${t.getTotalPrice()}VND</h4>
+                        <p><a href="BookingTour?id=${id}" class="btn btn-primary">Booking</a></p>
                     </div>
                 </div>
             </div>
