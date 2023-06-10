@@ -91,31 +91,32 @@
             <p class="mb-4 text-center">Hãy cùng trải nghiệm với chúng tôi</p>
             <div class="row popular-list">
                 <c:forEach var="i" items="${requestScope.tour}">
-
                     <div class="col-lg-4 col-md-6 my-3">
-                        <div class="popular-card">
-                            <img src="${i.getImg()}" alt="Image description">
+                        <a href="TourDetail?id=${i.getTour_ID()}">
+                            <div class="popular-card">
+                                <img src="${i.getImg()}" alt="Image description">
 
-                            <div class="card-content">
+                                <div class="card-content">
 
-                                <div class="card-rating">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
+                                    <div class="card-rating">
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                    <p class="card-subtitle">
+                                        <a href="TourDetail?id=${i.getTour_ID()}">${tDAO.CityName(i.getCity_ID()).getCity_Name()}</a>
+                                    </p>
+                                    <h3 class="h3 card-title">
+                                        <a href="TourDetail?id=${i.getTour_ID()}">Hotel: ${tDAO.getHotelById(i.getHotel_ID()).getHotel_Name()}</a>
+                                    </h3>
+                                    <h4 class="h3 card-title">
+                                        <a href="TourDetail?id=${i.getTour_ID()}" style="color: red">${String.format("%.1f",i.getTotalPrice())}VNĐ</a>
+                                    </h4>
                                 </div>
-                                <p class="card-subtitle">
-                                    <a href="TourDetail?id=${i.getTour_ID()}">${tDAO.CityName(i.getCity_ID()).getCity_Name()}</a>
-                                </p>
-                                <h3 class="h3 card-title">
-                                    <a href="TourDetail?id=${i.getTour_ID()}">Hotel: ${tDAO.getHotelById(i.getHotel_ID()).getHotel_Name()}</a>
-                                </h3>
-                                <h4 class="h3 card-title">
-                                    <a href="TourDetail?id=${i.getTour_ID()}" style="color: red">${i.getTotalPrice()}VNĐ</a>
-                                </h4>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </c:forEach>
 
